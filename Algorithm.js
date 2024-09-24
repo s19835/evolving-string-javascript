@@ -7,3 +7,13 @@ function randomChar() {
     const chars = 'ABCDEFGHIJKLMNOPQRSTWXYZ ';
     return chars[Math.floor(Math.random() * chars.length)];
 }
+
+// generate random string for specified length
+function randomString(length) {
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += randomChar();
+    }
+
+    return result;
+}
