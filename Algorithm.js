@@ -17,3 +17,15 @@ function randomString(length) {
 
     return result;
 }
+
+// calculate fitness ( how close a string is to the target)
+function calculateFitness(individual) {
+    let score = 0;
+    for (let i = 0; i < target.length; i++) {
+        if (individual[i] === target[i]) {
+            score++;
+        }
+    }
+
+    return score / target.length;
+}
