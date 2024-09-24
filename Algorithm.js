@@ -1,6 +1,6 @@
 // set up require variables
 const target = 'HELLO WORLD';
-
+const populationSize = 100;
 
 // generate random characters
 function randomChar() {
@@ -28,4 +28,10 @@ function calculateFitness(individual) {
     }
 
     return score / target.length;
+}
+
+// create an initial population
+let population = [];
+for (let i = 0; i < populationSize; i++) {
+    population.push(randomString(target.length))
 }
