@@ -65,3 +65,9 @@ function select(fitnessScores) {
         }
     }
 }
+
+// Crossover two parents
+function crossover(parentA, parentB) {
+    let midpoint = Math.floor(Math.random() * parentA.length);
+    return parentA.slice(0, midpoint) + parentB.slice(midpoint);
+}
