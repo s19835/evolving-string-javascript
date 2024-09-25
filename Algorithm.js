@@ -71,3 +71,18 @@ function crossover(parentA, parentB) {
     let midpoint = Math.floor(Math.random() * parentA.length);
     return parentA.slice(0, midpoint) + parentB.slice(midpoint);
 }
+
+// Mutate an individual
+function mutate(individual) {
+    let newIndividual = '';
+
+    for (let i = 0; i < individual.length; i++) {
+        if (Math.random() < mutationRate) {
+            newIndividual += randomChar();
+        } else {
+            newIndividual += individual[i];
+        }
+    }
+
+    return newIndividual;
+}
