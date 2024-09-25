@@ -47,8 +47,23 @@ for (let gen = 0; gen < generations; gen++) {
     let newPopulation = [];
     for (let i = 0; i < populationSize; i++) {
         // Selection: Chose two parents based on fitness
-        let parentA = population
+        let parentA = population[select(fitnessScores)];
+        let parentB = population[select(fitnessScores)];
+
+        // Crossover: Create a child
+        let child = crossover(parentA, parentB);
+
+        // Mutation: mutate the child
+        child = mutate(child);
+
+        newPopulation.push(child);
     }
+
+    population = newPopulation;
+
+    // Print the best solution every generation
+    let best = population[fitnessScores.indexOf(Math.max(...fitnessScores))];
+    console.log(`Geneartion ${gen}: ${best}`);
 }
 
 // Select an individual based on fitness probability
