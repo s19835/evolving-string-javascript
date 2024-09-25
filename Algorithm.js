@@ -1,6 +1,8 @@
 // set up require variables
-const target = 'HELLO WORLD';
+const target = "HELLO WORLD";
+const mutationRate = 0.01;
 const populationSize = 100;
+const generations = 1000;
 
 // generate random characters
 function randomChar() {
@@ -34,4 +36,32 @@ function calculateFitness(individual) {
 let population = [];
 for (let i = 0; i < populationSize; i++) {
     population.push(randomString(target.length))
+}
+
+// main for loop
+for (let gen = 0; gen < generations; gen++) {
+    // calculate fitness for each individual
+    let fitnessScores = population.map(individual => calculateFitness(individual));
+
+    // create new poputlation by selection and crossover
+    let newPopulation = [];
+    for (let i = 0; i < populationSize; i++) {
+        // Selection: Chose two parents based on fitness
+        let parentA = population
+    }
+}
+
+// Select an individual based on fitness probability
+function select(fitnessScores) {
+    let totalFitness = fitnessScores.reduce((sum, score) => sum + score, 0);
+    let threshold = Math.random() * totalFitness;
+    let runningSum = 0;
+
+    for (let i = 0; i < fitnessScores.length; i++) {
+        runningSum += fitnessScores[i];
+
+        if (runningSum > threshold) {
+            return i;
+        }
+    }
 }
